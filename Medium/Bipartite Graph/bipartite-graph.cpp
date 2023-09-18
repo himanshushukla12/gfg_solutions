@@ -7,29 +7,29 @@ class Solution {
 public:
 //linear graphs, neans no cycle will always be a bipartite graph
 // graph with odd lenght cycle is not a BIPARTITE GRAPH
-	bool check(int start, int V, vector<int> adj[], vector<int> &color){
-	    queue<int> q;
-	    q.push(start); // starting node 0 with color code 0
-	    color[start]=0;
-	    while(!q.empty()){
-	        int node;
-	        node=q.front();
-	        q.pop();
-	        for(auto u:adj[node]){
-	            if(color[u]==-1){
-	                color[u]=1-color[node];
-	                q.push(u);
-	            }else if(color[node]==color[u]) return false;
-	        }
-	    }
-	    return true;
-	}
+    bool dfs(int node, int col, vector<int>& color, vector<int> adj[]) {
+        color[node] = col; 
+        
+        // traverse adjacent nodes
+        for(auto it : adj[node]) {
+            // if uncoloured
+            if(color[it] == -1) {
+                if(dfs(it, !col, color, adj) == false) return false; 
+            }
+            // if previously coloured and have the same colour
+            else if(color[it] == col) {
+                return false; 
+            }
+        }
+        
+        return true; 
+    }
 	bool isBipartite(int V, vector<int>adj[]){
-	    // using BFS, taking only two color 0 and 1, -1 is considered as no color
+	    // using DFS, taking only two color 0 and 1, -1 is considered as no color
 	    vector<int> color(V,-1);
 	    for(int i=0;i<V;i++){
 	        if(color[i]==-1){
-	            if(!check(i,V,adj,color)){
+	            if(!dfs(i,0,color,adj)){
 	                return false;
 	            }
 	        }
