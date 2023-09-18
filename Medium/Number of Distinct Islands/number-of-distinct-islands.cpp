@@ -9,55 +9,41 @@ using namespace std;
 
 class Solution {
   public:
-    void dfs(int row, int col, vector < vector < int >> & vis,
-      vector < vector < int >> & grid, vector < pair < int, int >> & vec, int row0, 
-      int col0) {
-      // mark the cell as visited
-      vis[row][col] = 1;
-
-      // coordinates - base coordinates
-      vec.push_back({
-        row - row0,
-        col - col0
-      });
-      int n = grid.size();
-      int m = grid[0].size();
-
-      // delta row and delta column
-      int delrow[] = {-1, 0, +1, 0}; 
-      int delcol[] = {0, -1, 0, +1}; 
-
-      // traverse all 4 neighbours
-      for (int i = 0; i < 4; i++) {
-        int nrow = row + delrow[i];
-        int ncol = col + delcol[i];
-        // check for valid unvisited land neighbour coordinates 
-        if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m &&
-          !vis[nrow][ncol] && grid[nrow][ncol] == 1) {
-          dfs(nrow, ncol, vis, grid, vec, row0, col0);
+// BASIC IDEA IS TO SAVE THE DIFFERENCES OF THE COORDINATES TAKING BASE FROM WHERE THE DFS STARTED
+  //SEE THE STRIVER'S VIDEO FOR THE SAME
+    void dfs(int row, int col, vector<vector<int>>& viz,
+    vector<vector<int>> &grid, vector<pair<int,int>> &vec,int row0,int col0){
+        viz[row][col]=1;
+        vec.push_back({row-row0,col-col0});
+        int dx[]={-1,0,1,0};
+        int dy[]={0,-1,0,1};
+        int n = grid.size();
+        int m = grid[0].size();
+        for(int i=0;i<4;++i){
+            int nrow=row+dx[i];
+            int ncol=col+dy[i];
+            if(nrow>=0&&nrow<n&&ncol>=0&&ncol<m && !viz[nrow][ncol]
+            && grid[nrow][ncol]==1){
+                dfs(nrow,ncol,viz,grid,vec,row0,col0);
+            }
         }
-      }
+        
     }
-  public:
-    int countDistinctIslands(vector < vector < int >> & grid) {
-      int n = grid.size();
-      int m = grid[0].size();
-      vector < vector < int >> vis(n, vector < int > (m, 0));
-      set < vector < pair < int, int >>> st;
-
-      // traverse the grid
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-          // if not visited and is a land cell
-          if (!vis[i][j] && grid[i][j] == 1) {
-            vector < pair < int, int >> vec;
-            dfs(i, j, vis, grid, vec, i, j);
-            // store in set
-            st.insert(vec);
-          }
+    int countDistinctIslands(vector<vector<int>>& grid) {
+        int n=grid.size();
+        int m=grid[0].size();
+        vector<vector<int>> viz(n,vector<int>(m,0));
+        set<vector<pair<int,int>>> st;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(!viz[i][j]&&grid[i][j]==1){
+                    vector<pair<int,int>> vec;
+                    dfs(i,j,viz,grid,vec,i,j);
+                    st.insert(vec);
+                }
+            }
         }
-      }
-      return st.size();
+        return st.size();
     }
 };
 
