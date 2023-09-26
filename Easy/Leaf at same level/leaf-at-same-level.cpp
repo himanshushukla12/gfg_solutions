@@ -99,36 +99,25 @@ struct Node
 class Solution{
   public:
     /*You are required to complete this method*/
-    int temp=-1;
-   void fun(Node* root, int h,int &val)
-   {
-          if(root==NULL) return;
-           
-           if(root->left==NULL&&root->right==NULL){
-               if(temp==-1){
-                   temp=h;
-               }else{
-                   if(h!=temp){
-                       val=0;
-                   }
-               }
-                return;
-           }
-           if(root->left)
-           fun(root->left,h+1,val);
-           if(root->right)
-           fun(root->right,h+1,val);
-       
-   }
+    int minHeight(Node* root){
+        if(!root) return INT_MAX;
+        if(root->left==nullptr and root->right==nullptr)
+        return 1;
+        int lst=minHeight(root->left);
+        int rst=minHeight(root->right);
+        return 1+min(lst,rst);
+    }
+    int maxHeight(Node* root){
+        if(!root) return 0;
+        int lst=maxHeight(root->left);
+        int rst=maxHeight(root->right);
+        return 1+max(lst,rst);
+    }
     bool check(Node *root)
     {
         //Your code here
-        if(root==NULL){
-          return 1;
-          }
-          int val=1;
-          fun(root,0,val);
-          return val;
+        //check min and max height of lst and rst
+        return (minHeight(root)==maxHeight(root));
     }
 };
 
