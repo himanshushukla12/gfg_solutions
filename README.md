@@ -1,7 +1,9 @@
-![GeeksforGeeks Logo](https://www.geeksforgeeks.org/favicon.ico)[Profile Link](https://auth.geeksforgeeks.org/user/himanshushukla9)
+<p align="center">
+  <img src="https://www.geeksforgeeks.org/favicon.ico" width="26" height="26" alt="GeeksforGeeks Logo">
+</p>
 
 # Hi there, I'm Himanshu Shukla 👋
-
+[![Himanshu's geeksForgeeks stats](https://geeks-for-geeks-stats-api-napiyo.vercel.app/?userName=himanshushukla9)](https://auth.geeksforgeeks.org/user/himanshushukla9)
 ## 📈 GeeksforGeeks Contribution Chart
 <!-- Custom GFG contribution chart goes here -->
 
@@ -11,8 +13,3 @@
 ## 📊 GitHub Stats
 ![Himanshu's GitHub stats](https://github-readme-stats.vercel.app/api?username=himanshushukla9&show_icons=true&count_private=true&theme=radical)
 
-## 🏗️ GitHub Projects
-<!-- Any GitHub projects you want to showcase -->
-
-## 📫 How to reach me
-<!-- Your contact information -->
