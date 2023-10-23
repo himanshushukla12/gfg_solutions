@@ -1,6 +1,6 @@
 <!-- Replace the Geeks for Geeks logo, your Geeks for Geeks profile link, and your Geeks for Geeks profile picture link -->
 <p align="center">
-  <a href="[https://media.geeksforgeeks.org/auth/profile/qbon4rlcw1z2kk7j1w3n](https://media.geeksforgeeks.org/gfg-gg-logo.svg)">
+  <a href="https://media.geeksforgeeks.org/gfg-gg-logo.svg">
     <img src="YOUR_GEEKS_FOR_GEEKS_PROFILE_PICTURE_LINK" alt="Geeks for Geeks Profile">
   </a>
 </p>
