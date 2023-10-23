@@ -5,6 +5,4 @@
 
 # Hi there, I'm Himanshu Shukla 👋
 [![Himanshu's geeksForgeeks stats](https://geeks-for-geeks-stats-api-napiyo.vercel.app/?userName=himanshushukla9)](https://auth.geeksforgeeks.org/user/himanshushukla9)
-<p align="center">
-  <img src="https://github-readme-potd.vercel.app/api?username=himanshushukla9" alt="GitHub PotD Streak" />
-</p>
+## I used to do gfg problems daily
