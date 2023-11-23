@@ -1,11 +1,9 @@
 //{ Driver Code Starts
 #include <bits/stdc++.h>
-
 using namespace std;
-#define ll long long
 
 // } Driver Code Ends
-// #define ll long long
+#define ll long long
 class Solution{
 public:
     vector<ll> nthRowOfPascalTriangle(int n) {
@@ -31,10 +29,11 @@ public:
 };
 
 
+
 //{ Driver Code Starts.
 
 
-void printAns(vector<ll> &ans) {
+void printAns(vector<long long> &ans) {
     for (auto &x : ans) {
         cout << x << " ";
     }
